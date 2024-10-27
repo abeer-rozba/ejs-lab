@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <% if(category === 'mains') { category = "Mains"}
+      else if (category === 'sides') {category = "Sides"}
+      else if (category === 'desserts') {category = "Desserts"}%>
+      <%= category%>
+    </title>
+</head>
+<body>
+  <%- include('./partials/nav.ejs') %>
+  <h1><%= category%></h1>
+  <% menuItems.forEach((item) => { %>
+    <i><h3><%= item.name %></h3></i>
+    <p> <b>Price:</b> <%= item.price %> <b>Rating:</b> <%= item.rating %></p>
+    <p> <b>Details:</b> <%= item.details %></p>
+  <%}) %>
+</body>
+</html>
